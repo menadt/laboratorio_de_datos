@@ -15,6 +15,7 @@ Proponemos una serie de preguntas guía a responder usando las herramientas pres
 Construya un subset de los datos totales filtrando propiedades de Capital Federal, tipo de operación Venta y moneda en dólares.
 
 ```{r}
+library(ggplot2)
 datos_totales <- read.csv("ar_properties.csv")
 datos <- datos_totales[is.element(datos_totales$l2,"Capital Federal") &
                          is.element(datos_totales$operation_type,"Venta") &
@@ -24,6 +25,103 @@ datos <- datos_totales[is.element(datos_totales$l2,"Capital Federal") &
 ¿Es el precio por metro cuadrado igual en toda el dataset? ¿Cómo varía? Cree precio por metro cuadrado (precio por m2). Caracterice esta variable usando las herramientas de estadística descriptiva vistas.
 
 ```{r}
-datos$precio_por_m2 <- datos$price[is.numeric(datos$surface_total)&datos$surface_total>0] / datos$surface_total[is.numeric(datos$surface_total)&datos$surface_total>0]
+datos$precio_m2 <- datos$price / datos$surface_total
+summary(datos$precio_m2[!is.na(datos$precio_m2)& datos$precio_m2!=Inf])
+boxplot(precio_m2 ~ property_type, datos, pch=18,las=0, outline=FALSE, cex.axis=0.5, xlab = "Tipo de Propiedad", ylab="Precio por M2")
+barrios <- unique(datos$l3)
+barrios <- barrios[!is.na(barrios)]
+mediana_por_barrio <- c()
+for (barrio in barrios)
+  {
+  mediana_por_barrio <- c(mediana_por_barrio,
+                          median(datos$precio_m2[datos$l3==barrio], na.rm = T))
+}
+
+barplot(mediana_por_barrio, names.arg = barrios, cex.names = 0.3, main="Precio del metro cuadrado por barrio", xlab = "Barrio" , ylab="Mediana del Precio del m2", horiz = TRUE, las=1)
+
+plot(mediana_por_barrio, main="Precio del metro cuadrado por barrio", xlab = "Barrio" , ylab="Mediana del Precio del m2", type="p")
+
+```
+
+Se puede ver por los gráficos que el dataset varía en su precio debido al barrio como al tipo de propiedad.
+
+
+#¿Cuales propiedades son caras, promedio o baratas? Construya una partición que separe el precio por metro cuadrado en tres categorías.
+
+```{r}
+particiones <- quantile(datos$precio_m2, probs = c(0.33, 0.66), na.rm = TRUE)
+particiones
+```
+
+Las propiedades baratas son aquellas que valen menos de 2198 usd el metro cuadrado. Las promedio son las que van desde 2198 a 2919 y luego, las caras son las que valen m[as de 2919 usd el m2.
+
+
+#¿Cómo cambia el precio por cantidad de habitaciones (rooms) en el dataset? ¿Cambia al considerar distintos tipos de propiedad?¿Y distintos barrios?
+
+```{r}
+plot(jitter(datos$rooms), datos$price, main="Precio por cantidad de habitaciones", xlab="Habitaciones", ylab = "Precio", ylim=c(0,1000000), xlim = c(0,9))
+```
+```{r}
+datos$property_type <- factor(datos$property_type, levels = unique(datos$property_type), labels = unique(datos$property_type))
+plot(jitter(datos$rooms), datos$price, main="Precio por cantidad de habitaciones", xlab="Habitaciones", ylab = "Precio", ylim=c(0,1000000), xlim = c(0,9), col=datos$property_type)
+
+tipos <- unique(datos$property_type)
+
+for(tipo in tipos){
+  plot(jitter(datos$rooms[datos$property_type==tipo]), datos$price[datos$property_type==tipo], main=paste("Precio por cantidad de habitaciones en",tipo), xlab="Habitaciones", ylab = "Precio", ylim=c(0,1000000), xlim = c(0,9))
+}
+
+```
+
+El precio varía en función de las habitaciones para algunos tipos de propiedad: PH, casas y departamentos.
+
+En el resto de los tipos de propiedad esto no pareciera ser un factor determinante.
+
+
+```{r}
+datos$l3 <- factor(datos$l3, levels = barrios, labels = barrios)
+plot(jitter(datos$rooms), log(datos$price), main="Precio por cantidad de habitaciones", xlab="Habitaciones", ylab = "Precio", ylim=c(7,15), xlim = c(0,9), col=datos$l3)
+
+plot(log(jitter(datos$rooms)), log(datos$precio_m2), main="Precio por cantidad de habitaciones", xlab="Habitaciones", ylab = "Precio", ylim=c(6,15), xlim = c(0,3), col=datos$l3)
+
+```
+
+#¿Qué considera que describe mejor el precio de una propiedad, su número de habitaciones (rooms) o su superficie cubierta?
+
+```{r}
+plot(jitter(datos$surface_covered), log(datos$price), main="Precio por superficie cubierta", xlab="Sup. cubierta (en m2)", ylab = "Precio (en USD)", col=datos$l3, xlim=c(0,1000))
+```
+
+
+Considero que describe mejor su precio la superficie cubierta. Al graficar por cantidad de habitaciones se nota que en alguno tipos de propiedad, esto no tiene mayor importante. 
+En cambio, al relacionar el precio con la superficie cubierta se puede ver una relación mucho más consistente.
+
+
+#¿Cómo cambia la superficie cubierta por número de habitaciones (rooms) en el dataset?¿Cambia al considerar distintos tipos de propiedad?¿Y distintos barrios? Caracterice metro cuadrado por habitación. Caracterice esta variable usando las herramientas de estadística descriptiva vistas.
+
+```{r}
+plot(jitter(datos$rooms), log(datos$surface_covered), main="Superficie cubierta por habitaciones", xlab="Habitaciones", ylab = "Sup. cubierta (en m2)", ylim = c(0,10),xlim = c(0,9))
+
+```
+
+Pareciera ser que el mínimo de superficie cubierta aumenta con la cantidad de habitaciones.
+
+```{r}
+plot(jitter(datos$rooms), log(datos$surface_covered), main="Superficie cubierta por habitaciones", xlab="Habitaciones", ylab = "Sup. cubierta (en m2)", ylim = c(0,10),xlim = c(0,9), col=datos$property_type)
+legend("topright",legend=levels(datos$property_type), fill=datos$property_type, text.width = 1)
+```
+
+```{r}
+datos$m2_por_hab <- datos$surface_covered / datos$rooms
+summary(datos$m2_por_hab[!is.na(datos$m2_por_hab) &
+                           datos$m2_por_hab!=Inf])
+
+boxplot(datos$m2_por_hab[!is.na(datos$m2_por_hab) &
+                           datos$m2_por_hab!=Inf], outline = FALSE, main="Metros cuadrados por habitacion")
+```
+```{r}
+for(tipo in tipos){
+  boxplot(jitter(datos$m2_por_hab[datos$property_type==tipo]), main=paste("Metros cuadrado por hab en",tipo), ylab = "m2", outline = F)
+}
 ```
 
