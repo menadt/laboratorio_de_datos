@@ -1,0 +1,21 @@
+---
+title: "TP Extra"
+author: "MenaDT"
+date: "2023-02-14"
+output: html_document
+---
+#Reexplorando PROPERATI
+
+##Este notebook
+En este notebook el objetivo es que ustedes puedan emplear lo visto en el notebook Nociones básicas de estadística descriptiva para caracterizar y repensar el dataset de propiedades de ar_properties.csv.
+
+Proponemos una serie de preguntas guía a responder usando las herramientas presentadas en el notebook de estadística descriptiva. En todas la preguntas propuestas, el objetivo es que identifiquen alguna medida o visualización que les ayude a responder la pregunta conceptual realizada. Esto significa que todo gráfico o número debería ir acompañado de una interpretación del significado que ustedes asignen al mismo.
+
+##Primera parte
+Construya un subset de los datos totales filtrando propiedades de Capital Federal, tipo de operación Venta y moneda en dólares.
+
+```{r}
+datos_totales <- read.csv("ar_properties.csv")
+datos <- datos_totales[datos_totales$]
+```
+

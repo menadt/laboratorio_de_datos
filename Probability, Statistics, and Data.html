@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://mathstat.slu.edu/~speegle/_book/preface.html -->
+<html lang="" xml:lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Probability, Statistics, and Data</title>
+  <meta name="description" content="Probability, Statistics and Data: A Fresh Approach Using R by Speegle and Clair. This textbook is ideal for a calculus based probability and statistics course integrated with R. It features probability through simulation, data manipulation and visualization, and explorations of inference assumptions.">
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Probability, Statistics, and Data">
+  <meta property="og:type" content="book">
+  
+  <meta property="og:image" content="/images/cover_image.png">
+  <meta property="og:description" content="Probability, Statistics and Data: A Fresh Approach Using R by Speegle and Clair. This textbook is ideal for a calculus based probability and statistics course integrated with R. It features probability through simulation, data manipulation and visualization, and explorations of inference assumptions.">
+  
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Probability, Statistics, and Data">
+  
+  <meta name="twitter:description" content="Probability, Statistics and Data: A Fresh Approach Using R by Speegle and Clair. This textbook is ideal for a calculus based probability and statistics course integrated with R. It features probability through simulation, data manipulation and visualization, and explorations of inference assumptions.">
+  <meta name="twitter:image" content="/images/cover_image.png">
+
+<meta name="author" content="Darrin Speegle and Bryan Clair">
+
+
+<meta name="date" content="2022-02-15">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="https://mathstat.slu.edu/~speegle/_book/images/favicon.png" type="image/x-icon">
+
+<link rel="next" href="https://mathstat.slu.edu/~speegle/_book/RData.html">
+<script src="./Probability, Statistics, and Data_files/header-attrs.js.descargar"></script><style type="text/css" id="operaUserStyle"></style>
+<script src="./Probability, Statistics, and Data_files/jquery.min.js.descargar"></script>
+<link href="./Probability, Statistics, and Data_files/style.css" rel="stylesheet">
+<link href="./Probability, Statistics, and Data_files/plugin-table.css" rel="stylesheet">
+<link href="./Probability, Statistics, and Data_files/plugin-bookdown.css" rel="stylesheet">
+<link href="./Probability, Statistics, and Data_files/plugin-highlight.css" rel="stylesheet">
+<link href="./Probability, Statistics, and Data_files/plugin-search.css" rel="stylesheet">
+<link href="./Probability, Statistics, and Data_files/plugin-fontsettings.css" rel="stylesheet">
+<link href="./Probability, Statistics, and Data_files/plugin-clipboard.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+<link href="./Probability, Statistics, and Data_files/anchor-sections.css" rel="stylesheet">
+<script src="./Probability, Statistics, and Data_files/anchor-sections.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/kePrint.js.descargar"></script>
+<link href="./Probability, Statistics, and Data_files/lightable.css" rel="stylesheet">
+<script src="./Probability, Statistics, and Data_files/htmlwidgets.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/plotly.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/typedarray.min.js.descargar"></script>
+<link href="./Probability, Statistics, and Data_files/crosstalk.css" rel="stylesheet">
+<script src="./Probability, Statistics, and Data_files/crosstalk.min.js.descargar"></script>
+<link href="./Probability, Statistics, and Data_files/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="./Probability, Statistics, and Data_files/plotly-latest.min.js.descargar"></script><style id="plotly.js-style-global"></style>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="./Probability, Statistics, and Data_files/style(1).css" type="text/css">
+<script type="text/javascript" src="./Probability, Statistics, and Data_files/MathJax.js.descargar"></script><style type="text/css">:root topadblock, :root span[id^="ezoic-pub-ad-placeholder-"], :root guj-ad, :root gpt-ad, :root div[jsdata*="CarouselPLA-"][data-id^="CarouselPLA-"], :root div[id^="yandex_ad"], :root div[id^="vuukle-ad-"], :root div[id^="rc-widget-"], :root div[id^="lazyad-"], :root div[id^="gtm-ad-"], :root div[id^="gpt_ad_"], :root div[id^="gpt-ad-hor"], :root div[id^="div-gpt-"], :root div[id^="dfp-slot-"], :root div[id^="dfp-ad-"], :root div[id^="advads_"], :root div[id^="adspot-"], :root div[id^="ads300_250-widget-"], :root div[id^="ads300_100-widget-"], :root div[id^="ads250_250-widget-"], :root div[id^="adrotate_widgets-"], :root div[id^="adngin-"], :root div[id^="adfox_"], :root div[id^="ad_script_"], :root div[id^="ad-server-"], :root div[id^="ad-gpt-"], :root div[id^="ad-div-"], :root div[id*="ScriptRoot"], :root div[id*="MarketGid"], :root div[data-mpu1], :root div[data-insertion], :root div[data-id-advertdfpconf], :root div[data-google-query-id], :root hl-adsense, :root div[data-contentexchange-widget], :root div[data-content="Advertisement"], :root div[data-alias="300x250 Ad 2"], :root div[data-alias="300x250 Ad 1"], :root div[data-adzone], :root div[data-adunit-path], :root div[data-ad-wrapper], :root div[data-ad-targeting], :root div[data-ad-placeholder], :root div[class^="s-dfp-"], :root div[class^="native-ad-"], :root div[data-dfp-id], :root div[class^="kiwi-ad-wrapper"], :root div[class^="Adstyled__AdWrapper-"], :root div[aria-label="Ads"], :root display-ads, :root aside[id^="advads_ad_widget-"], :root aside[id^="adrotate_widgets-"], :root article.ad, :root div[class^="gpt-ad-hor"], :root ark-top-ad, :root app-advertisement, :root amp-embed[type="taboola"], :root amp-connatix-player, :root amp-ad-custom, :root ad-shield-ads, :root ad-desktop-sidebar, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://yogacomplyfuel.com/"], :root a[href^="https://www.vfreecams.com/in/?track="], :root a[href^="https://www.rabbits.webcam/?id="], :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root a[href^="https://www.passeura.com/"], :root a[href^="https://www.oneclickroot.com/?tap_a="] > img, :root a[href^="https://www.oboom.com/ref/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://www.mrskin.com/account/"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.jackery.com?aff="] > img, :root a[href^="https://www.iyalc.com/"], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://www.highperformancegate.com/"], :root a[href^="https://www.highcpmrevenuenetwork.com/"], :root a[href^="https://www.healthrangerstore.com/"] > img, :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href^="https://www.clicktraceclick.com/"], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root div[class^="Display_displayAd"], :root a[href^="https://www.sheetmusicplus.com/?aff_id="], :root a[href^="https://www.bang.com/?aff="], :root a[href^="https://www.arthrozene.com/"][href*="?tid="], :root a[href^="https://www.adsexse.com/x/"], :root a[href^="https://webroutetrk.com/"], :root iframe[src^="http://ad.yieldmanager.com/"], :root a[href^="https://wantopticalfreelance.com/"], :root a[href^="https://waisheph.com/"], :root a[href^="https://uncensored.game/"], :root a[href^="https://twinrdsyn.com/"], :root a[href^="https://ttf.trmobc.com/"], :root a[href^="https://tsartech.g2afse.com/"], :root a[href^="https://trusted-click-host.com/"], :root a[href^="https://trk.watchlivesports4k.club/"], :root a[href^="https://trk.moviesflix4k.xyz/"], :root a[href^="https://trf.bannerator.com/"], :root a[href^="https://trappist-1d.com/"], :root a[href^="https://tragency-clesburg.icu/"], :root a[href^="https://traffdaq.com/"], :root a[href^="https://tracking.trackcasino.co/"], :root a[href^="https://tracking.comfortclick.eu/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.ultravpn.com/"], :root a[href^="https://track.totalav.com/"], :root a[href^="https://track.themadtrcker.com/"], :root a[href^="https://track.interactivegf.com/"], :root a[href^="https://vlnk.me/"], :root a[href^="https://track.healthtrader.com/"], :root a[href^="https://track.effiliation.com/servlet/effi.click?"] > img, :root zeus-ad, :root a[href^="https://track.clickmoi.xyz/"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://tupitea.co/"], :root a[href^="https://track.adform.net/"], :root a[href^="https://torguard.net/aff.php"] > img, :root a[href^="https://tm-offers.gamingadult.com/"], :root div[data-adname], :root a[href^="https://thechleads.pro/"], :root a[href^="https://tracking.gitads.io/"], :root a[href^="https://taghaugh.com/"], :root a[href^="https://t.mobtya.com/"], :root a[href^="https://t.hrtyj.com/"], :root a[href^="https://www.profitablecpmgate.com/"], :root a[href^="https://t.adating.link/"], :root a[href^="https://topoffers.com/"][href*="/?pid="], :root a[href^="https://syndication.dynsrvtbg.com/"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://s.zlink2.com/"], :root a[href^="https://reachtrgt.com/"], :root a[href^="https://queersodadults.com/"], :root a[href^="https://ptapjmp.com/"], :root a[href^="https://promo-bc.com/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root a[href^="https://pongidsrunback.com/"], :root a[href^="https://pcm.bannerator.com/"], :root iframe[id^="google_ads_frame"], :root a[href^="https://pb-track.com/"], :root a[href^="https://partners.fxoro.com/click.php?"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root a[href^="https://torrentsafeguard.com/?aid="], :root a[href^="https://offers.refchamp.com/"], :root a[href^="https://oackoubs.com/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://nutrientassumptionclaims.com/"], :root a[href^="https://ndt5.net/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root a[href^="https://www.highperformancecpmgate.com/"], :root a[href^="https://t.grtyi.com/"], :root a[href^="https://myusenet.xyz/"], :root a[href^="https://msecure117.com/"], :root a[href^="https://moneynow.one/"], :root div[id^="ezoic-pub-ad-"], :root a[href^="https://mk-cdn.net/"], :root a[href^="https://meet-sexhere.com/"], :root a[href^="https://meet-sex-here.com/"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://maymooth-stopic.com/"], :root div[id^="google_dfp_"], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://look.utndln.com/"], :root a[href^="https://a.bestcontentweb.top/"], :root a[href^="https://lobimax.com/"], :root a[href^="https://lead1.pl/"], :root a[href^="https://refpazkjixes.top/"], :root a[href^="https://landing.brazzersplus.com/"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://ads.leovegas.com/redirect.aspx?"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://itubego.com/video-downloader/?affid="], :root a[href^="https://movie.download-file.org/"], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root a[href^="https://iac.ampxdirect.com/"], :root [data-revive-zoneid], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root a[href^="https://clk.wrenchsound.store/"], :root a[href^="https://go.zybrdr.com"], :root [href^="http://join.michelle-austin.com/"], :root a[href^="https://go.xxxiijmp.com"], :root a[href*=".zlinkm.com/"], :root a[href^="https://go.xtbaffiliates.com/"], :root a[href^="https://thaudray.com/"], :root [data-role="tile-ads-module"], :root a[href^="https://adsrv4k.com/"], :root a[href^="https://go.xlviirdr.com"], :root .card-captioned.crd > .crd--cnt > .s2nPlayer, :root [data-css-class="dfp-inarticle"], :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://refpa4903566.top/"], :root a[href^="https://go.strpjmp.com/"], :root a[href^="https://go.skinstrip.net"][href*="?campaignId="], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="//lambingsyddir.com/"], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://go.goaserv.com/"], :root a[href^="https://go.ebrokerserve.com/"], :root a[href^="https://go.dmzjmp.com"], :root a[href^="https://ismlks.com/"], :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://azpresearch.club/"], :root a[href^="https://go.xlirdr.com"], :root app-ad, :root a[href^="https://track.afftck.com/"], :root a[href^="https://gohere.pl/"], :root a[href^="https://go.cmrdr.com/"], :root a[href^="https://www.bebi.com"], :root a[href^="https://loboclick.com"], :root iframe[src^="https://pagead2.googlesyndication.com/"], :root a[href^="http://www.onwebcam.com/random?t_link="], :root a[href^="https://get2nesoft1.ru/"], :root [href^="https://kingered-banctours.com/"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a-ad, :root a[href^="https://affiliate.rusvpn.com/click.php?"], :root a[href^="https://geniusdexchange.com/"], :root a[href^="https://aj1070.online/"], :root a[href^="https://frameworkdeserve.com/"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://financeads.net/tc.php?"], :root bottomadblock, :root a[href^="https://fertilitycommand.com/"], :root a[href^="https://bluedelivery.pro/"], :root a[href^="https://fast-redirecting.com/"], :root a[href^="https://fakelay.com/"], :root a[href^="https://medleyads.com/"], :root div[data-native-ad], :root a[href^="https://engine.trackingdesks.com/"], :root a[href^="https://engine.blueistheneworanges.com/"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://dianches-inchor.com/"], :root a[href^="https://go.admjmp.com/"], :root amp-fx-flying-carpet, :root a[href^="https://dfsdkkka.com/"], :root .trc_related_container div[data-item-syndicated="true"], :root a[href^="https://delivery.porn.com/"], :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root a[href^="https://deliver.tf2www.com/"], :root [href^="https://www.targetingpartner.com/"], :root [href^="https://detachedbates.com/"], :root a[href^="https://fourwhenstatistics.com/"], :root a[href^="https://deliver.ptgncdn.com/"], :root a[href^="https://datingbests.life/"], :root #kt_player > a[target="_blank"], :root a[href^="https://cpartner.bdswiss.com/"], :root a[href^="https://clixtrac.com/"], :root AD-TRIPLE-BOX, :root a[href^="https://click.hoolig.app/"], :root img[src^="https://images.purevpnaffiliates.com"], :root a[href^="https://porntubemate.com/"], :root a[href^="http://www.gfrevenge.com/landing/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://click.dtiserv2.com/"], :root a[href^="https://go.xlvirdr.com"], :root a[href^="https://claring-loccelkin.com/"], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://aaucwbe.com/"], :root a[href^="https://cams.imagetwist.com/in/?track="], :root a[href^="https://mob1ledev1ces.com/"], :root a[href^="https://explore.findanswersnow.net/"], :root a[href^="https://camfapr.com/landing/click/"], :root a[href^="https://my-movie.club/"], :root a[href^="https://cam4com.go2cloud.org/"], :root a[href^="https://affcpatrk.com/"], :root a[href^="https://bongacams2.com/track?"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="https://bngpt.com/"], :root #topstuff > #tads, :root a[href^="https://black77854.com/"], :root a[href^="https://burpee.xyz/"], :root a[href*=".flndmyiove.net/"], :root [href^="http://join.trannies-fuck.com/"], :root [href^="http://www.fleshlightgirls.com/"], :root a[href^="https://bestdatinghere.life/"], :root div[id^="js-dfp-"], :root a[href^="https://batheunits.com/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[href^="https://banners.livepartners.com/"], :root a[href^="https://m.do.co/c/"] > img, :root div[id^="sticky_ad_"], :root a[href^="https://avtub.click/assets/link.php"], :root a[href^="https://go.gldrdr.com/"], :root [id^="ad_sky"], :root a[href^="https://funkydaters.com/"], :root [href^="https://www.cloudways.com/en/?id"], :root a[href^="https://as.sexad.net/"], :root a[href^="https://bestcond1tions.com/"], :root a[href^="https://takeallsoft.ru/"], :root a[href^="https://as.conjectwatson.com/"], :root [href="https://masstortfinancing.com"] img, :root a[href^="https://bongacams10.com/track?"], :root [data-ez-name], :root a[href^="https://awecrptjmp.com/"], :root a[href^="https://someperceptionparade.com/"], :root a[href^="https://galaxyroms.net/?scr="], :root a[href^="https://albionsoftwares.com/"], :root display-ad-component, :root a[href^="https://ak.hetaruwg.com/"], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://go.alxbgo.com/"], :root a[href^="https://aff-ads.stickywilds.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://ads.cdn.live/"], :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://intenseaffiliates.com/redirect/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://ads.ad4game.com/"], :root a[href^="https://affpa.top/"], :root a[href^="https://adnetwrk.com/"], :root a[href^="https://adjoincomprise.com/"], :root [href^="http://misslinkvocation.com/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="http://secure.vivid.com/track/"], :root a[href^="https://go.nordvpn.net/aff"] > img, :root a[href^="https://misspkl.com/"], :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root a[href^="https://ad.kubiccomps.icu/"], :root a[href^="https://adswick.com/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://ad.atdmt.com/"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root a[href^="https://a.medfoodhome.com/"], :root [data-m-ad-id], :root a[href^="https://a-ads.com/"], :root a[href^="http://www.mrskin.com/tour"], :root a[href^="https://k2s.cc/pr/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://www.coiwqe.site/"], :root a[href^="https://ads-for-free.com/click.php?"], :root a[href^="http://www.FriendlyDuck.com/"], :root iframe[src^="http://www.adpeepshosted.com/"], :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="http://trk.globwo.online/"], :root a[href^="http://traffic.tc-clicks.com/"], :root a[href^="http://tc.tradetracker.net/"] > img, :root .trc_rbox .syndicatedItem, :root a[href^="https://1free33style.com/"], :root a[href^="http://rs-stripe.wsj.com/stripe/redirect"], :root a[href^="http://tour.mrskin.com/"], :root a[href^="http://pubads.g.doubleclick.net/"], :root [onclick*="content.ad/"], :root a[href^="http://pityhostngco2.xyz/"], :root a[href^="http://partners.etoro.com/"], :root atf-ad-slot, :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > div > .vci, :root a[href^="http://paid.outbrain.com/network/redir?"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root [href^="https://www.reimageplus.com/"], :root a[href^="https://engine.phn.doublepimp.com/"], :root a[href^="http://intent.bingads.com/"], :root a[href^="https://cagothie.net/"], :root a[href^="https://watchmygirlfriend.tv/"], :root a[href^="http://go.xtbaffiliates.com/"], :root a[href^="http://go.fpmarkets.com/"], :root a[href^="https://porngames.adult/?SID="], :root a[href^="http://go.247traffic.com/"], :root div[id^="_vdo_ads_player_ai_"], :root a[href^="http://enter.anabolic.com/track/"], :root a[href^="http://www.advcashpro.com/aff/"], :root a[href^="http://deloplen.com/"], :root a[href^="http://d2.zedo.com/"], :root .rc-cta[data-target], :root [href^="http://go.cm-trk2.com/"], :root a[href^="http://adtrack1.club/"], :root a[href^="http://click.payserve.com/"], :root a[href^="https://bs.serving-sys.com"], :root [class^="chp_ads_block"], :root a[href^="http://betahit.click/"], :root a[href^="https://clicks.pipaffiliates.com/"], :root [href^="https://noqreport.com/"] > img, :root a[href^="//wagerprocuratorantiterrorist.com/"], :root a[href^="http://adserver.adreactor.com/"], :root [href^="https://cipledecline.buzz/"], :root a[href^="https://earandmarketing.com/"], :root a[href^="http://adf.ly/?id="], :root [href^="http://homemoviestube.com/"], :root a[href^="http://ad.doubleclick.net/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci, :root a[href^="//syndication.dynsrvtbg.com/"], :root a[href^="//pubads.g.doubleclick.net/"], :root a[href^="http://m.hsrve.com/"], :root [class^="s2nPlayer"], :root a[href^="https://chaturbate.jjgirls.com/?track="], :root a[href^="https://ausoafab.net/"], :root a[href^="//benoopto.com/"], :root [id^="ad-wrap-"], :root [href^="https://www.restoro.com/"], :root a[href^="//apptjmp.com/"], :root a[href^="https://dooloust.net/"], :root [href^="https://www.mypatriotsupply.com/"] > img, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root [href^="https://secure.bmtmicro.com/servlets/"], :root a[href="//rufflycouncil.com/"], :root a[href*="https://www.sweetdeals.com/"] img, :root div[data-native_ad], :root a[href*=".zlink9.com/"], :root [data-d-ad-id], :root a[href*=".engine.adglare.net/"], :root a[href^="https://a.bestcontentoperation.top/"], :root a[href^="https://dishphysics.com/"], :root a[href^="//go.xlviiirdr.com"], :root [data-dynamic-ads], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-ad-width], :root [href^="https://join.playboyplus.com/track/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root a[href^="https://landing1.brazzersnetwork.com"], :root #slashboxes > .deals-rail, :root [href^="http://globsads.com/"], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="http://bc.vc/?r="], :root a[href^="https://a2.adform.net/"], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root [href^="https://clk.right-wing-health.com/"], :root a[data-redirect^="http://paid.outbrain.com/network/redir?"], :root a[href^="https://axdsz.pro/"], :root a[href^="http://bodelen.com/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root a[href^="http://allaptair.club/"], :root a[href^="//go.eabids.com/"], :root a[data-oburl^="http://paid.outbrain.com/network/redir?"], :root [href^="https://cpa.10kfreesilver.com/"], :root a[href^="https://a.bestcontentfood.top/"], :root a[href^="https://reinstandpointdumbest.com/"], :root a[href*="http://MyPillow.com"] > img, :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://wct.link/"], :root [href^="https://goldforyourfuture.com/clk.trk"] img, :root [href^="https://infinitytrk.com/"], :root [onclick^="location.href='http://www.reimageplus.com"], :root a[href^="https://pl.premium4kflix.website/"], :root [id^="chp_ads_block"], :root a[href^="https://go.julrdr.com/"], :root a[href^="//chrif8kdstie.com/"], :root [id^="section-ad-banner"], :root .commercial-unit-mobile-top > div[data-pla="1"], :root a[href^="https://www.sweetdeals.com"], :root a[href^="https://track.bruceads.com/"], :root a[href^="https://t.aslnk.link/"], :root [href^="https://zstacklife.com/"] img, :root a[href^="https://meet-to-fuck.com/"], :root .trc_rbox_div .syndicatedItemUB, :root [href^="https://zone.gotrackier.com/"], :root [data-ad-manager-id], :root a[href^="https://fleshlight.sjv.io/"], :root div[id^="zergnet-widget"], :root [href^="https://www.mystore.com/"] > img, :root div[id^="ad-position-"], :root a[href^="http://adultfriendfinder.com/go/page/landing"], :root a[href^="http://affiliate.glbtracker.com/"], :root a[href^="https://leg.xyz/?track="], :root a[href^="https://syndication.exoclick.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://go.trackitalltheway.com/"], :root a[href^="https://go.cmtaffiliates.com/"], :root [data-name="adaptiveConstructorAd"], :root [href^="https://optimizedelite.com/"] > img, :root a[href^="https://www.awin1.com/cread.php?awinaffid="], :root a[href^="//thaudray.com/"], :root div[id^="crt-"][style], :root a[href^="https://s.zlink1.com/"], :root a[href^="http://adultgames.xxx/"], :root a[href^="https://traffic.bannerator.com/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root a[href^="https://vo2.qrlsx.com/"], :root [href^="https://www.avantlink.com/click.php"] img, :root a[href^="https://losingoldfry.com/"], :root div[id^="ad-inserter-"], :root .scroll-fixable.rail-right > .deals-rail, :root a[href^="https://see.kmisln.com/"], :root [href^="https://routewebtk.com/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root a[href^="https://mmwebhandler.aff-online.com/"], :root [href^="https://r.kraken.com/"], :root a[href^="https://awptjmp.com/"], :root a[href^="https://go.goasrv.com/"], :root .commercial-unit-mobile-top > .v7hl4d, :root [href^="http://mypillow.com/"] > img, :root a[href^="http://bongacams.com/track?"], :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root [href^="https://stvkr.com/"], :root a[href^="https://go.hpyjmp.com"], :root a[href^="https://tour.mrskin.com/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root ADS-RIGHT, :root [href^="https://mystore.com/"] > img, :root [href^="https://mypatriotsupply.com/"] > img, :root [href^="https://mylead.global/stl/"] > img, :root div[id^="ad_rect_"], :root .vid-present > .van_vid_carousel__padding, :root a[href^="https://syndication.optimizesrv.com/"], :root [id^="google_ads_iframe"], :root a[href^="https://go.xxxijmp.com"], :root [href^="https://istlnkcl.com/"], :root a[href^="https://playuhd.host/"], :root a[href^="https://5hjdbfjfd5.monster/"], :root [href^="https://www.hostg.xyz/"] > img, :root .section-subheader > .section-hotel-prices-header, :root [href^="http://join.ts-dominopresley.com/"], :root [href^="https://go.affiliatexe.com/"], :root [href^="https://go.4rabettraff.com/"], :root [href^="https://glersakr.com/"], :root a[href^="https://click.a-ads.com/"], :root a[href^="https://wittered-mainging.com/"], :root [href^="https://engine.gettopple.com/"], :root [href^="https://awbbjmp.com/"], :root a[href^="https://gghf.mobi/"], :root [href^="https://affect3dnetwork.com/track/"], :root a[href^="https://go.currency.com/"], :root [href^="http://www.mypillow.com/"] > img, :root a[href^="//coarsewary.com/"], :root a[href^="https://a.montangop.top/"], :root [href^="https://v.investologic.co.uk/"], :root a[href^="https://dialling-abutory.com/"], :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root a[href^="https://www.sugarinstant.com/?partner_id="], :root a[href^="https://adultfriendfinder.com/go/page/landing"], :root div[id^="advads-"], :root div[data-role="sidebarAd"], :root [href^="https://join3.bannedsextapes.com"], :root div[data-spotim-slot], :root [href^="https://antiagingbed.com/discount/"] > img, :root a[href^="https://go.247traffic.com/"], :root [href^="https://join.girlsoutwest.com/"], :root [href^="http://trafficare.net/"], :root a[href^="https://adserver.adreactor.com/"], :root [href^="http://join.shemalesfromhell.com/"], :root [id^="ad_slider"], :root [href^="http://join.shemale.xxx/"], :root [href^="https://ilovemyfreedoms.com/landing-"], :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root a[href^="https://www.chngtrack.com/"], :root a[href^="https://cpmspace.com/"], :root [href^="https://freecourseweb.com/"] > .sitefriend, :root a[href^="https://ads.planetwin365affiliate.com/redirect.aspx?"], :root [href^="http://join.rodneymoore.com/"], :root a[href^="http://trk.mdrtrck.com/"], :root [href^="https://shrugartisticelder.com"], :root a[href*=".trust.zone"], :root a[href^="https://uncensored3d.com/"], :root a[href^="https://creacdn.top-convert.com/"], :root [href^="https://go.xlrdr.com"], :root [id^="div-gpt-ad"], :root .ob_container .item-container-obpd, :root [href^="http://www.pingperfect.com/aff.php"], :root a[href^="https://scurewall.co/"], :root [name^="google_ads_iframe"], :root [href^="https://safer-redirection.com"], :root [href^="//ngeoziadiyc4hi2e.com/"], :root a[href^="https://go.xxxjmp.com"], :root a[href^="https://transfer.xe.com/signup/track/redirect?"], :root #leader-companion > a[href], :root [data-desktop-ad-id], :root [href^="https://wct.link/"], :root [href^="https://traffserve.com/"], :root a[href^="https://1startfiledownload1.com/"], :root a[href^="https://a.adtng.com/"], :root a[href^="http://static.fleshlight.com/images/banners/"], :root [href="https://ourgoldguy.com/contact/"] img, :root [href="https://www.masstortfinancing.com/"] > img, :root a[href^="https://lnkxt.bannerator.com/"], :root div[id^="ad_position_"], :root a[href^="https://ovb.im/"], :root a[href^="http://hotcandyland.com/partner/"], :root [href="https://jdrucker.com/gold"] > img, :root [href^="https://goldcometals.com/clk.trk"], :root [data-mobile-ad-id], :root a[href^="http://affiliates.thrixxx.com/"], :root #searchResultsList > div > div[onclick$="'inline.ad'});"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root [data-template-type="nativead"], :root a[data-redirect^="this.href='http://paid.outbrain.com/network/redir?"], :root a[href^="https://go.xlivrdr.com"], :root a[href^="https://www.onlineusershielder.com/torrent-guard/?"], :root [data-freestar-ad], :root AMP-AD, :root [data-ad-cls], :root div[id^="taboola-stream-"], :root [href^="https://go.astutelinks.com/"], :root [href^="http://join.hardcoreshemalevideo.com/"], :root a[href^="http://ads2.williamhill.com/redirect.aspx?"], :root [href^="http://residenceseeingstanding.com/"], :root a[href^="https://www.adskeeper.com"], :root a[href^="//agacelebir.com/"], :root [href^="https://totlnkcl.com/"], :root div[data-adunit], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root a[href^="http://www.onclickmega.com/jump/next.php?"], :root .trc_rbox_border_elm .syndicatedItem, :root [class^="amp-ad-"], :root .grid > .container > #aside-promotion, :root DFP-AD, :root a[href^="https://www.camsoda.com/enter.php?id="], :root AD-SLOT, :root a[href^="https://www.liquidfire.mobi/"], :root [href^="https://click2cvs.com/"], :root a[href^="https://u.expresstech.io/"], :root [href^="https://mypillow.com/"] > img, :root [href^="https://ad.admitad.com/"], :root [href^="http://join.shemalepornstar.com/"], :root a[href^="https://go.xlviiirdr.com"], :root .trc_rbox_div .syndicatedItem, :root [data-ad-module], :root [href^="https://trackfin.asia/"], :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root a[href^="https://spygasm.com/track?"], :root a[href^="https://agacelebir.com/"], :root a[href*="//lkstrck2.com/"], :root .plistaList > .itemLinkPET, :root [data-advadstrackid], :root [href^="https://affiliate.fastcomet.com/"] > img, :root #atvcap + #tvcap > .mnr-c > .commercial-unit-mobile-top, :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="https://awentw.com/"], :root [class^="div-gpt-ad"], :root a[href^="//voyeurhit.com/cs/"], :root div[id^="ad_bnr_"], :root a[href^="https://join.virtuallust3d.com/"], :root a[href^="https://speedsupermarketdonut.com/"], :root #taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top, :root [data-adblockkey], :root div.fadeInDown[id$="____equal"][class$="____equal"], :root a[href^="https://mediaserver.gvcaffiliates.com/renderBanner.do?"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://odnxe.lncredlbiedate.com/"], :root a[href^="https://click.linksynergy.com/fs-bin/"], :root a[href^="https://join.virtualtaboo.com/track/"], :root a[href^="http://https://www.get-express-vpn.com/offer/"], :root a[href^="https://americafirstpolls.com/"] { display: none !important; }</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {display: block; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-ex-box-test {position: absolute; overflow: hidden; width: 1px; height: 60ex}
+.mjx-line-box-test {display: table!important}
+.mjx-line-box-test span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+.MJXc-TeX-vec-R {font-family: MJXc-TeX-vec-R,MJXc-TeX-vec-Rw}
+.MJXc-TeX-vec-B {font-family: MJXc-TeX-vec-B,MJXc-TeX-vec-Bx,MJXc-TeX-vec-Bw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-R; src: local('MathJax_Vector'), local('MathJax_Vector-Regular')}
+@font-face {font-family: MJXc-TeX-vec-Rw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Regular.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Regular.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-B; src: local('MathJax_Vector Bold'), local('MathJax_Vector-Bold')}
+@font-face {font-family: MJXc-TeX-vec-Bx; src: local('MathJax_Vector'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-vec-Bw; src /*1*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Bold.eot'); src /*2*/: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Bold.woff') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Bold.otf') format('opentype')}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary"><div class="book-search" role="search"><label for="search-box" aria-hidden="false" hidden="hidden">Type to search</label><input id="search-box" type="search" class="form-control" placeholder="Type to search (Enter for navigation)" title="Use Enter or the &lt;Down&gt; key to navigate to the next match, or the &lt;Up&gt; key to the previous match"></div>
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://mathstat.slu.edu/~speegle/_book/">Probability, Statistics and Data:<br>&nbsp; A Fresh Approach Using R</a></li>
+
+<li class="divider"></li>
+<li class="chapter active" data-level="" data-path="preface.html"><a href="https://mathstat.slu.edu/~speegle/_book/preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="https://mathstat.slu.edu/~speegle/_book/preface.html#software-installation"><i class="fa fa-check"></i>Software Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html"><i class="fa fa-check"></i><b>1</b> Data in R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#arithmeticandvariableassignment" title="1.1 Arithmetic and variable assignment"><i class="fa fa-check"></i><b>1.1</b> Arithmetic and variable assignment</a></li>
+<li class="chapter" data-level="1.2" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#helpmerhonda"><i class="fa fa-check"></i><b>1.2</b> Help</a></li>
+<li class="chapter" data-level="1.3" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#vectors"><i class="fa fa-check"></i><b>1.3</b> Vectors</a></li>
+<li class="chapter" data-level="1.4" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#indexingvectors"><i class="fa fa-check"></i><b>1.4</b> Indexing vectors</a></li>
+<li class="chapter" data-level="1.5" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#datatypes"><i class="fa fa-check"></i><b>1.5</b> Data types</a>
+<ul style="display: none;">
+<li class="chapter" data-level="1.5.1" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#missing-data"><i class="fa fa-check"></i><b>1.5.1</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#dataframes"><i class="fa fa-check"></i><b>1.6</b> Data frames</a></li>
+<li class="chapter" data-level="1.7" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#readingdatafromfiles"><i class="fa fa-check"></i><b>1.7</b> Reading data from files</a></li>
+<li class="chapter" data-level="1.8" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#libraries"><i class="fa fa-check"></i><b>1.8</b> Packages</a></li>
+<li class="chapter" data-level="1.9" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#errorsandwarnings"><i class="fa fa-check"></i><b>1.9</b> Errors and warnings</a></li>
+<li class="chapter" data-level="1.10" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#usefulidioms"><i class="fa fa-check"></i><b>1.10</b> Useful idioms</a></li>
+<li class="chapter" data-level="" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#vignette-data-science-communities"><i class="fa fa-check"></i>Vignette: Data science communities</a></li>
+<li class="chapter" data-level="" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#vignette-an-r-markdown-primer"><i class="fa fa-check"></i>Vignette: An R Markdown primer</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#r-markdown-files"><i class="fa fa-check"></i>R Markdown files</a></li>
+<li class="chapter" data-level="" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#document-content"><i class="fa fa-check"></i>Document content</a></li>
+<li class="chapter" data-level="" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#code-chunks"><i class="fa fa-check"></i>Code chunks</a></li>
+<li class="chapter" data-level="" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#onward"><i class="fa fa-check"></i>Onward</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="RData.html"><a href="https://mathstat.slu.edu/~speegle/_book/RData.html#exercises-calc"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html"><i class="fa fa-check"></i><b>2</b> Probability</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#probabilitybasics"><i class="fa fa-check"></i><b>2.1</b> Probability basics</a></li>
+<li class="chapter" data-level="2.2" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#simulationsprob"><i class="fa fa-check"></i><b>2.2</b> Simulations</a>
+<ul style="display: none;">
+<li class="chapter" data-level="2.2.1" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#simulation-with-sample"><i class="fa fa-check"></i><b>2.2.1</b> Simulation with <code>sample</code></a></li>
+<li class="chapter" data-level="2.2.2" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#llnappearance"><i class="fa fa-check"></i><b>2.2.2</b> Using simulation to estimate probabilities</a></li>
+<li class="chapter" data-level="2.2.3" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#using-replicate-to-repeat-experiments"><i class="fa fa-check"></i><b>2.2.3</b> Using <code>replicate</code> to repeat experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#conditionalprobability" title="2.3 Conditional probability and independence"><i class="fa fa-check"></i><b>2.3</b> Conditional probability and independence</a>
+<ul style="display: none;">
+<li class="chapter" data-level="2.3.1" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#independent-events"><i class="fa fa-check"></i><b>2.3.1</b> Independent events</a></li>
+<li class="chapter" data-level="2.3.2" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#simulating-conditional-probability"><i class="fa fa-check"></i><b>2.3.2</b> Simulating conditional probability</a></li>
+<li class="chapter" data-level="2.3.3" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#bayes-rule-and-conditioning"><i class="fa fa-check"></i><b>2.3.3</b> Bayes’ Rule and conditioning</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#countingarguments"><i class="fa fa-check"></i><b>2.4</b> Counting arguments</a></li>
+<li class="chapter" data-level="" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#vignette-negative-surveys"><i class="fa fa-check"></i>Vignette: Negative surveys</a></li>
+<li class="chapter" data-level="" data-path="probchapter.html"><a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#exercises-prob"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html"><i class="fa fa-check"></i><b>3</b> Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#probabilitymassfunctions"><i class="fa fa-check"></i><b>3.1</b> Probability mass functions</a></li>
+<li class="chapter" data-level="3.2" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#expectedvaluediscrete"><i class="fa fa-check"></i><b>3.2</b> Expected value</a></li>
+<li class="chapter" data-level="3.3" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#binomialgeometric" title="3.3 Binomial and geometric random variables"><i class="fa fa-check"></i><b>3.3</b> Binomial and geometric random variables</a>
+<ul style="display: none;">
+<li class="chapter" data-level="3.3.1" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#binomial"><i class="fa fa-check"></i><b>3.3.1</b> Binomial</a></li>
+<li class="chapter" data-level="3.3.2" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#geometric"><i class="fa fa-check"></i><b>3.3.2</b> Geometric</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#functionsofrvdiscrete"><i class="fa fa-check"></i><b>3.4</b> Functions of a random variable</a></li>
+<li class="chapter" data-level="3.5" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#varianceandsd" title="3.5 Variance, standard deviation, and independence"><i class="fa fa-check"></i><b>3.5</b> Variance, standard deviation, and independence</a>
+<ul style="display: none;">
+<li class="chapter" data-level="3.5.1" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#indepentrvs"><i class="fa fa-check"></i><b>3.5.1</b> Independent random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#otherdiscrete" title="3.6 Poisson, negative binomial, and hypergeometric"><i class="fa fa-check"></i><b>3.6</b> Poisson, negative binomial, and hypergeometric</a>
+<ul style="display: none;">
+<li class="chapter" data-level="3.6.1" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#poissonsection"><i class="fa fa-check"></i><b>3.6.1</b> Poisson</a></li>
+<li class="chapter" data-level="3.6.2" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#negative-binomial"><i class="fa fa-check"></i><b>3.6.2</b> Negative binomial</a></li>
+<li class="chapter" data-level="3.6.3" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#hypergeometric"><i class="fa fa-check"></i><b>3.6.3</b> Hypergeometric</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#vignette-loops-in-r"><i class="fa fa-check"></i>Vignette: Loops in R</a></li>
+<li class="chapter" data-level="" data-path="discreterandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#exercises-discreterv"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html"><i class="fa fa-check"></i><b>4</b> Continuous Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#probabilitydensityfunctions"><i class="fa fa-check"></i><b>4.1</b> Probability density functions</a></li>
+<li class="chapter" data-level="4.2" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#expected-value"><i class="fa fa-check"></i><b>4.2</b> Expected value</a></li>
+<li class="chapter" data-level="4.3" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#varianceandsdcontinuous"><i class="fa fa-check"></i><b>4.3</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="4.4" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#normalrandomvariables"><i class="fa fa-check"></i><b>4.4</b> Normal random variables</a>
+<ul style="display: none;">
+<li class="chapter" data-level="4.4.1" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#computations-with-normal-random-variables"><i class="fa fa-check"></i><b>4.4.1</b> Computations with normal random variables</a></li>
+<li class="chapter" data-level="4.4.2" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#normal-approximation-to-the-binomial"><i class="fa fa-check"></i><b>4.4.2</b> Normal approximation to the binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#uniformandexponential" title="4.5 Uniform and exponential random variables"><i class="fa fa-check"></i><b>4.5</b> Uniform and exponential random variables</a>
+<ul style="display: none;">
+<li class="chapter" data-level="4.5.1" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#uniform-random-variables"><i class="fa fa-check"></i><b>4.5.1</b> Uniform random variables</a></li>
+<li class="chapter" data-level="4.5.2" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#expsection"><i class="fa fa-check"></i><b>4.5.2</b> Exponential random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#summaryrv"><i class="fa fa-check"></i><b>4.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="continuousrandomvariables.html"><a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#exercises-continuousrv"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html"><i class="fa fa-check"></i><b>5</b> Simulation of Random Variables</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#simulationrv"><i class="fa fa-check"></i><b>5.1</b> Estimating probabilities</a></li>
+<li class="chapter" data-level="5.2" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#estimatingdiscretedistributions"><i class="fa fa-check"></i><b>5.2</b> Estimating discrete distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#estimatingcontinuousdistributions" title="5.3 Estimating continuous distributions"><i class="fa fa-check"></i><b>5.3</b> Estimating continuous distributions</a></li>
+<li class="chapter" data-level="5.4" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#centrallimittheorem"><i class="fa fa-check"></i><b>5.4</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="5.5" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#samplingdistributions"><i class="fa fa-check"></i><b>5.5</b> Sampling distributions</a>
+<ul style="display: none;">
+<li class="chapter" data-level="5.5.1" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#the-chi2-distribution"><i class="fa fa-check"></i><b>5.5.1</b> The <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mi&gt;&amp;#x03C7;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-4" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.247em; padding-bottom: 0.491em;">χ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-5" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.369em; padding-bottom: 0.369em;">2</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-1">\chi^2</script></span> distribution</a></li>
+<li class="chapter" data-level="5.5.2" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#thetdist"><i class="fa fa-check"></i><b>5.5.2</b> The <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-6" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-7" class="mjx-mrow"><span id="MJXc-Node-8" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.43em; padding-bottom: 0.308em;">t</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">t</script></span> distribution</a></li>
+<li class="chapter" data-level="5.5.3" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#the-f-distribution"><i class="fa fa-check"></i><b>5.5.3</b> The <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-3-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-9" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-10" class="mjx-mrow"><span id="MJXc-Node-11" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.43em; padding-bottom: 0.308em; padding-right: 0.106em;">F</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></span></span><script type="math/tex" id="MathJax-Element-3">F</script></span> distribution</a></li>
+<li class="chapter" data-level="5.5.4" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#summary"><i class="fa fa-check"></i><b>5.5.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#pointestimators"><i class="fa fa-check"></i><b>5.6</b> Point estimators</a>
+<ul style="display: none;">
+<li class="chapter" data-level="5.6.1" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#properties-of-point-estimators"><i class="fa fa-check"></i><b>5.6.1</b> Properties of point estimators</a></li>
+<li class="chapter" data-level="5.6.2" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#variance-of-unbiased-estimators"><i class="fa fa-check"></i><b>5.6.2</b> Variance of unbiased estimators</a></li>
+<li class="chapter" data-level="5.6.3" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#msebvd"><i class="fa fa-check"></i><b>5.6.3</b> MSE and bias-variance decomposition</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#vignette-steins-paradox"><i class="fa fa-check"></i>Vignette: Stein’s paradox</a></li>
+<li class="chapter" data-level="" data-path="SimulationRV.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#exercises-simrv"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html"><i class="fa fa-check"></i><b>6</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#dataframesandtibbles"><i class="fa fa-check"></i><b>6.1</b> Data frames and tibbles</a></li>
+<li class="chapter" data-level="6.2" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#dplyrverbs"><i class="fa fa-check"></i><b>6.2</b> dplyr verbs</a></li>
+<li class="chapter" data-level="6.3" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#dplyrpipelines"><i class="fa fa-check"></i><b>6.3</b> dplyr pipelines</a>
+<ul style="display: none;">
+<li class="chapter" data-level="6.3.1" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#group-by-and-summarize"><i class="fa fa-check"></i><b>6.3.1</b> Group by and summarize</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#powerofdplyr"><i class="fa fa-check"></i><b>6.4</b> The power of dplyr</a></li>
+<li class="chapter" data-level="6.5" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#stringrsection"><i class="fa fa-check"></i><b>6.5</b> Working with character strings</a></li>
+<li class="chapter" data-level="6.6" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#structureofdata"><i class="fa fa-check"></i><b>6.6</b> Structure of data</a>
+<ul style="display: none;">
+<li class="chapter" data-level="6.6.1" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#tidypivot"><i class="fa fa-check"></i><b>6.6.1</b> Tidy data: pivoting</a></li>
+<li class="chapter" data-level="6.6.2" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#joinDataManipulation"><i class="fa fa-check"></i><b>6.6.2</b> Using join to merge data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#applyfamily"><i class="fa fa-check"></i><b>6.7</b> The apply family</a></li>
+<li class="chapter" data-level="" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#vignette-dplyr-murder-mystery"><i class="fa fa-check"></i>Vignette: dplyr murder mystery</a></li>
+<li class="chapter" data-level="" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#vignette-data-and-gender"><i class="fa fa-check"></i>Vignette: Data and gender</a></li>
+<li class="chapter" data-level="" data-path="datamanipulation.html"><a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#exercises-dm"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html"><i class="fa fa-check"></i><b>7</b> Data Visualization with ggplot</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#gofg"><i class="fa fa-check"></i><b>7.1</b> ggplot fundamentals</a>
+<ul style="display: none;">
+<li class="chapter" data-level="7.1.1" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>7.1.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#basicplots"><i class="fa fa-check"></i><b>7.1.2</b> Basic plot creation</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#structured-data"><i class="fa fa-check"></i><b>7.1.3</b> Structured data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#vizsingle"><i class="fa fa-check"></i><b>7.2</b> Visualizing a single variable</a>
+<ul style="display: none;">
+<li class="chapter" data-level="7.2.1" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#histograms"><i class="fa fa-check"></i><b>7.2.1</b> Histograms</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#barplots"><i class="fa fa-check"></i><b>7.2.2</b> Barplots</a></li>
+<li class="chapter" data-level="7.2.3" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#density-plots"><i class="fa fa-check"></i><b>7.2.3</b> Density plots</a></li>
+<li class="chapter" data-level="7.2.4" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#boxplots"><i class="fa fa-check"></i><b>7.2.4</b> Boxplots</a></li>
+<li class="chapter" data-level="7.2.5" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#qqplot"><i class="fa fa-check"></i><b>7.2.5</b> QQ plots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#vizdouble" title="7.3 Visualizing two or more variables"><i class="fa fa-check"></i><b>7.3</b> Visualizing two or more variables</a>
+<ul style="display: none;">
+<li class="chapter" data-level="7.3.1" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#scatterplots"><i class="fa fa-check"></i><b>7.3.1</b> Scatterplots</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#linegraphs"><i class="fa fa-check"></i><b>7.3.2</b> Line graphs and smoothing</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#facet"><i class="fa fa-check"></i><b>7.3.3</b> Faceting</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#customizing"><i class="fa fa-check"></i><b>7.4</b> Customizing</a>
+<ul style="display: none;">
+<li class="chapter" data-level="7.4.1" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#color"><i class="fa fa-check"></i><b>7.4.1</b> Color</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#labels"><i class="fa fa-check"></i><b>7.4.2</b> Labels and themes</a></li>
+<li class="chapter" data-level="7.4.3" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#text-annotations"><i class="fa fa-check"></i><b>7.4.3</b> Text annotations</a></li>
+<li class="chapter" data-level="7.4.4" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#highlighting"><i class="fa fa-check"></i><b>7.4.4</b> Highlighting</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#vignette-choropleth-maps"><i class="fa fa-check"></i>Vignette: Choropleth maps</a></li>
+<li class="chapter" data-level="" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#vignette-covid-19"><i class="fa fa-check"></i>Vignette: COVID-19</a>
+<ul style="display: none;">
+<li class="chapter" data-level="" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#state-by-state-comparisons"><i class="fa fa-check"></i>State-by-state comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplotviz.html"><a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#exercises-ggplot"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html"><i class="fa fa-check"></i><b>8</b> Inference on the Mean</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#samplingdistmean" title="8.1 Sampling distribution of the sample mean"><i class="fa fa-check"></i><b>8.1</b> Sampling distribution of the sample mean</a></li>
+<li class="chapter" data-level="8.2" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#confidenceintervalmean" title="8.2 Confidence intervals for the mean"><i class="fa fa-check"></i><b>8.2</b> Confidence intervals for the mean</a></li>
+<li class="chapter" data-level="8.3" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#hypothesistestmean"><i class="fa fa-check"></i><b>8.3</b> Hypothesis tests of the mean</a></li>
+<li class="chapter" data-level="8.4" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#onesided" title="8.4 One-sided confidence intervals and hypothesis tests"><i class="fa fa-check"></i><b>8.4</b> One-sided confidence intervals and hypothesis tests</a></li>
+<li class="chapter" data-level="8.5" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#chapter7sims" title="8.5 Assessing robustness via simulation"><i class="fa fa-check"></i><b>8.5</b> Assessing robustness via simulation</a>
+<ul style="display: none;">
+<li class="chapter" data-level="8.5.1" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#symmetric-light-tails"><i class="fa fa-check"></i><b>8.5.1</b> Symmetric, light tails</a></li>
+<li class="chapter" data-level="8.5.2" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#skew"><i class="fa fa-check"></i><b>8.5.2</b> Skew</a></li>
+<li class="chapter" data-level="8.5.3" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#heavy-tails-and-outliers"><i class="fa fa-check"></i><b>8.5.3</b> Heavy tails and outliers</a></li>
+<li class="chapter" data-level="8.5.4" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#independence"><i class="fa fa-check"></i><b>8.5.4</b> Independence</a></li>
+<li class="chapter" data-level="8.5.5" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#summary-1"><i class="fa fa-check"></i><b>8.5.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#twosamplehypothesistestmean"><i class="fa fa-check"></i><b>8.6</b> Two sample hypothesis tests</a>
+<ul style="display: none;">
+<li class="chapter" data-level="8.6.1" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#two-independent-samples-t-test"><i class="fa fa-check"></i><b>8.6.1</b> Two independent samples <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-4-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-12" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-13" class="mjx-mrow"><span id="MJXc-Node-14" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.43em; padding-bottom: 0.308em;">t</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">t</script></span>-test</a></li>
+<li class="chapter" data-level="8.6.2" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#paired-two-sample-t-test"><i class="fa fa-check"></i><b>8.6.2</b> Paired two sample <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-5-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-15" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-16" class="mjx-mrow"><span id="MJXc-Node-17" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.43em; padding-bottom: 0.308em;">t</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></span></span><script type="math/tex" id="MathJax-Element-5">t</script></span>-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#type2andpower"><i class="fa fa-check"></i><b>8.7</b> Type II errors and power</a>
+<ul style="display: none;">
+<li class="chapter" data-level="8.7.1" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#effect-size"><i class="fa fa-check"></i><b>8.7.1</b> Effect size</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#bootstrapping"><i class="fa fa-check"></i><b>8.8</b> Resampling</a>
+<ul style="display: none;">
+<li class="chapter" data-level="8.8.1" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#bootstrapsubsection"><i class="fa fa-check"></i><b>8.8.1</b> Bootstrapping</a></li>
+<li class="chapter" data-level="8.8.2" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#permutation-tests"><i class="fa fa-check"></i><b>8.8.2</b> Permutation tests</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="HTCI.html"><a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#exercises-ttc"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html"><i class="fa fa-check"></i><b>9</b> Rank Based Tests</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#onesamplewilcoxon" title="9.1 One sample Wilcoxon signed rank test"><i class="fa fa-check"></i><b>9.1</b> One sample Wilcoxon signed rank test</a></li>
+<li class="chapter" data-level="9.2" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#twosamplewilcoxon"><i class="fa fa-check"></i><b>9.2</b> Two sample Wilcoxon tests</a>
+<ul style="display: none;">
+<li class="chapter" data-level="9.2.1" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#paired-two-sample-test"><i class="fa fa-check"></i><b>9.2.1</b> Paired two sample test</a></li>
+<li class="chapter" data-level="9.2.2" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#independent-two-sample-test"><i class="fa fa-check"></i><b>9.2.2</b> Independent two sample test</a></li>
+<li class="chapter" data-level="9.2.3" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#ordinal-data"><i class="fa fa-check"></i><b>9.2.3</b> Ordinal data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#rankrobust"><i class="fa fa-check"></i><b>9.3</b> Power and sample size</a>
+<ul style="display: none;">
+<li class="chapter" data-level="9.3.1" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#sample-size"><i class="fa fa-check"></i><b>9.3.1</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#effectsizeconsistency"><i class="fa fa-check"></i><b>9.4</b> Effect size and consistency</a>
+<ul style="display: none;">
+<li class="chapter" data-level="9.4.1" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#effect-size-1"><i class="fa fa-check"></i><b>9.4.1</b> Effect size</a></li>
+<li class="chapter" data-level="9.4.2" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#consistencysection"><i class="fa fa-check"></i><b>9.4.2</b> Consistency</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#wilcoxonsummary"><i class="fa fa-check"></i><b>9.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#vignette-roc-curves-and-the-wilcoxon-rank-sum-statistic" title="Vignette: ROC curves and the Wilcoxon rank sum statistic"><i class="fa fa-check"></i>Vignette: ROC curves and the Wilcoxon rank sum statistic</a></li>
+<li class="chapter" data-level="" data-path="RBT.html"><a href="https://mathstat.slu.edu/~speegle/_book/RBT.html#exercises-rbt"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html"><i class="fa fa-check"></i><b>10</b> Tabular Data</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#tablesandplots"><i class="fa fa-check"></i><b>10.1</b> Tables and plots</a></li>
+<li class="chapter" data-level="10.2" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#inferenceonaproportion"><i class="fa fa-check"></i><b>10.2</b> Inference on a proportion</a>
+<ul style="display: none;">
+<li class="chapter" data-level="10.2.1" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#exact-binomial-test"><i class="fa fa-check"></i><b>10.2.1</b> Exact binomial test</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#one-sample-test-of-proportions"><i class="fa fa-check"></i><b>10.2.2</b> One sample test of proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#chisquaredtests"><i class="fa fa-check"></i><b>10.3</b> <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-6-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 50%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mi&gt;&amp;#x03C7;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-18" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-19" class="mjx-mrow"><span id="MJXc-Node-20" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-21" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.293em; padding-bottom: 0.436em;">χ</span></span></span><span class="mjx-sup" style="font-size: 114.3%; vertical-align: 0.318em; padding-left: 0px; padding-right: 0.044em;"><span id="MJXc-Node-22" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.436em; padding-bottom: 0.293em;">2</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-6">\chi^2</script></span> tests</a>
+<ul style="display: none;">
+<li class="chapter" data-level="10.3.1" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#firstchisq"><i class="fa fa-check"></i><b>10.3.1</b> <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-7-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mi&gt;&amp;#x03C7;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-23" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-24" class="mjx-mrow"><span id="MJXc-Node-25" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-26" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.247em; padding-bottom: 0.491em;">χ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-27" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.369em; padding-bottom: 0.369em;">2</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-7">\chi^2</script></span> test for given probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#goodnesschi2"><i class="fa fa-check"></i><b>10.4</b> <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-8-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 50%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mi&gt;&amp;#x03C7;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-28" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-29" class="mjx-mrow"><span id="MJXc-Node-30" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-31" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.293em; padding-bottom: 0.436em;">χ</span></span></span><span class="mjx-sup" style="font-size: 114.3%; vertical-align: 0.318em; padding-left: 0px; padding-right: 0.044em;"><span id="MJXc-Node-32" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.436em; padding-bottom: 0.293em;">2</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-8">\chi^2</script></span> goodness of fit</a>
+<ul style="display: none;">
+<li class="chapter" data-level="10.4.1" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#chisqsims"><i class="fa fa-check"></i><b>10.4.1</b> Simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#chisqtestofindependence"><i class="fa fa-check"></i><b>10.5</b> <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-9-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 50%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mi&gt;&amp;#x03C7;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-33" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-34" class="mjx-mrow"><span id="MJXc-Node-35" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-36" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.293em; padding-bottom: 0.436em;">χ</span></span></span><span class="mjx-sup" style="font-size: 114.3%; vertical-align: 0.318em; padding-left: 0px; padding-right: 0.044em;"><span id="MJXc-Node-37" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.436em; padding-bottom: 0.293em;">2</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-9">\chi^2</script></span> tests on cross tables</a>
+<ul style="display: none;">
+<li class="chapter" data-level="10.5.1" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#subsectionchisqind"><i class="fa fa-check"></i><b>10.5.1</b> <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-10-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mi&gt;&amp;#x03C7;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-38" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-39" class="mjx-mrow"><span id="MJXc-Node-40" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-41" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.247em; padding-bottom: 0.491em;">χ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-42" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.369em; padding-bottom: 0.369em;">2</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-10">\chi^2</script></span> test of independence</a></li>
+<li class="chapter" data-level="10.5.2" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#subsectionchisqhomogeneity"><i class="fa fa-check"></i><b>10.5.2</b> <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-11-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mi&gt;&amp;#x03C7;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-43" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-44" class="mjx-mrow"><span id="MJXc-Node-45" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-46" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.247em; padding-bottom: 0.491em;">χ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-47" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.369em; padding-bottom: 0.369em;">2</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-11">\chi^2</script></span> test of homogeneity</a></li>
+<li class="chapter" data-level="10.5.3" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#two-sample-test-for-equality-of-proportions"><i class="fa fa-check"></i><b>10.5.3</b> Two sample test for equality of proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#exactmontecarlo" title="10.6 Exact and Monte Carlo methods"><i class="fa fa-check"></i><b>10.6</b> Exact and Monte Carlo methods</a></li>
+<li class="chapter" data-level="" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#vignette-tables"><i class="fa fa-check"></i>Vignette: Tables</a></li>
+<li class="chapter" data-level="" data-path="tabular.html"><a href="https://mathstat.slu.edu/~speegle/_book/tabular.html#exercises-tab"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html"><i class="fa fa-check"></i><b>11</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#fitaline"><i class="fa fa-check"></i><b>11.1</b> Least squares regression line</a></li>
+<li class="chapter" data-level="11.2" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#correlation"><i class="fa fa-check"></i><b>11.2</b> Correlation</a></li>
+<li class="chapter" data-level="11.3" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#geomofregression"><i class="fa fa-check"></i><b>11.3</b> Geometry of regression</a></li>
+<li class="chapter" data-level="11.4" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#residualanalysis"><i class="fa fa-check"></i><b>11.4</b> Residual analysis</a>
+<ul style="display: none;">
+<li class="chapter" data-level="11.4.1" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#linearity"><i class="fa fa-check"></i><b>11.4.1</b> Linearity</a></li>
+<li class="chapter" data-level="11.4.2" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#heteroscedasticity"><i class="fa fa-check"></i><b>11.4.2</b> Heteroscedasticity</a></li>
+<li class="chapter" data-level="11.4.3" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#normality"><i class="fa fa-check"></i><b>11.4.3</b> Normality</a></li>
+<li class="chapter" data-level="11.4.4" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#outliers-and-leverage"><i class="fa fa-check"></i><b>11.4.4</b> Outliers and leverage</a></li>
+<li class="chapter" data-level="11.4.5" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#residualindependence"><i class="fa fa-check"></i><b>11.4.5</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#SimpleRegInference"><i class="fa fa-check"></i><b>11.5</b> Inference</a>
+<ul style="display: none;">
+<li class="chapter" data-level="11.5.1" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#the-summary-command"><i class="fa fa-check"></i><b>11.5.1</b> The summary command</a></li>
+<li class="chapter" data-level="11.5.2" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#confidence-intervals-for-parameters"><i class="fa fa-check"></i><b>11.5.2</b> Confidence intervals for parameters</a></li>
+<li class="chapter" data-level="11.5.3" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#prediction-intervals-for-response"><i class="fa fa-check"></i><b>11.5.3</b> Prediction intervals for response</a></li>
+<li class="chapter" data-level="11.5.4" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#confidence-intervals-for-response"><i class="fa fa-check"></i><b>11.5.4</b> Confidence intervals for response</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#simpleregsimulations" title="11.6 Simulations for simple linear regression"><i class="fa fa-check"></i><b>11.6</b> Simulations for simple linear regression</a>
+<ul style="display: none;">
+<li class="chapter" data-level="11.6.1" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#residuals"><i class="fa fa-check"></i><b>11.6.1</b> Residuals</a></li>
+<li class="chapter" data-level="11.6.2" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#predictionIntervals"><i class="fa fa-check"></i><b>11.6.2</b> Prediction intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#crossvalidation"><i class="fa fa-check"></i><b>11.7</b> Cross validation</a></li>
+<li class="chapter" data-level="11.8" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#biasvariancetradeoff"><i class="fa fa-check"></i><b>11.8</b> Bias-variance tradeoff</a></li>
+<li class="chapter" data-level="" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#vignette-simple-logistic-regression"><i class="fa fa-check"></i>Vignette: Simple logistic regression</a></li>
+<li class="chapter" data-level="" data-path="SimpleReg.html"><a href="https://mathstat.slu.edu/~speegle/_book/SimpleReg.html#exercises-sr"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html" title="12 Analysis of Variance and Comparison of Multiple Groups"><i class="fa fa-check"></i><b>12</b> Analysis of Variance and Comparison of Multiple Groups</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#anovasection"><i class="fa fa-check"></i><b>12.1</b> ANOVA</a>
+<ul style="display: none;">
+<li class="chapter" data-level="12.1.1" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#anovagroups"><i class="fa fa-check"></i><b>12.1.1</b> Groups and means</a></li>
+<li class="chapter" data-level="12.1.2" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#anovatheory"><i class="fa fa-check"></i><b>12.1.2</b> The ANOVA model</a></li>
+<li class="chapter" data-level="12.1.3" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#simulations"><i class="fa fa-check"></i><b>12.1.3</b> Simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#anovatest"><i class="fa fa-check"></i><b>12.2</b> The ANOVA test</a>
+<ul style="display: none;">
+<li class="chapter" data-level="12.2.1" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#example-thc-mice"><i class="fa fa-check"></i><b>12.2.1</b> Example: THC mice</a></li>
+<li class="chapter" data-level="12.2.2" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#humanization"><i class="fa fa-check"></i><b>12.2.2</b> Example: Humanization</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#uneqvar"><i class="fa fa-check"></i><b>12.3</b> Unequal variance</a>
+<ul style="display: none;">
+<li class="chapter" data-level="12.3.1" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#the-oneway.test"><i class="fa fa-check"></i><b>12.3.1</b> The oneway.test</a></li>
+<li class="chapter" data-level="12.3.2" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#errorsimulationsequalvar"><i class="fa fa-check"></i><b>12.3.2</b> Error simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#pairwisettest"><i class="fa fa-check"></i><b>12.4</b> Pairwise <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-12-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 50%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-48" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-49" class="mjx-mrow"><span id="MJXc-Node-50" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.436em; padding-bottom: 0.293em;">t</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></span></span><script type="math/tex" id="MathJax-Element-12">t</script></span>-tests</a>
+<ul style="display: none;">
+<li class="chapter" data-level="12.4.1" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#fwer-and-p-value-adjustments"><i class="fa fa-check"></i><b>12.4.1</b> FWER and <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-13-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 117%; position: relative;"><span id="MJXc-Node-51" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-52" class="mjx-mrow"><span id="MJXc-Node-53" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.247em; padding-bottom: 0.491em;">p</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></span></span><script type="math/tex" id="MathJax-Element-13">p</script></span>-value adjustments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#vignette-reproducibility"><i class="fa fa-check"></i>Vignette: Reproducibility</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="https://mathstat.slu.edu/~speegle/_book/anova.html#exercises-anova"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html"><i class="fa fa-check"></i><b>13</b> Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#twoexplanatoryvariables"><i class="fa fa-check"></i><b>13.1</b> Two explanatory variables</a>
+<ul style="display: none;">
+<li><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#call"><code>Call</code></a></li>
+<li><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#residuals-1"><code>Residuals</code></a></li>
+<li><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#coefficients"><code>Coefficients</code></a></li>
+<li><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#residual-standard-error"><code>Residual standard error</code></a></li>
+<li><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#multiple-r-squared"><code>Multiple R-squared</code></a></li>
+<li><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#f-statistic"><code>F statistic</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#categoricalvariables"><i class="fa fa-check"></i><b>13.2</b> Categorical variables</a>
+<ul style="display: none;">
+<li class="chapter" data-level="13.2.1" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#equal-slopes-model"><i class="fa fa-check"></i><b>13.2.1</b> Equal slopes model</a></li>
+<li class="chapter" data-level="13.2.2" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#interaction-terms"><i class="fa fa-check"></i><b>13.2.2</b> Interaction terms</a></li>
+<li class="chapter" data-level="13.2.3" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#cross-validation"><i class="fa fa-check"></i><b>13.2.3</b> Cross validation</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#variableselection"><i class="fa fa-check"></i><b>13.3</b> Variable selection</a></li>
+<li class="chapter" data-level="" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#vignette-external-data-formats"><i class="fa fa-check"></i>Vignette: External data formats</a></li>
+<li class="chapter" data-level="" data-path="multipleregression.html"><a href="https://mathstat.slu.edu/~speegle/_book/multipleregression.html#exercises-mr"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body fixed">
+      <div class="body-inner">
+        <div class="book-header fixed" role="navigation" style="background-color: rgb(255, 255, 255);">
+          <a class="btn pull-left js-toolbar-action" aria-label="Toggle Sidebar" title="Toggle Sidebar" href="https://mathstat.slu.edu/~speegle/_book/preface.html#"><i class="fa fa-align-justify"></i></a><a class="btn pull-left js-toolbar-action" aria-label="Search" title="Search" href="https://mathstat.slu.edu/~speegle/_book/preface.html#"><i class="fa fa-search"></i></a><div class="dropdown pull-right js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Share" title="Share" href="https://mathstat.slu.edu/~speegle/_book/preface.html#"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">LinkedIn</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a class="btn pull-right js-toolbar-action" aria-label="Facebook" title="Facebook" href="https://mathstat.slu.edu/~speegle/_book/preface.html#"><i class="fa fa-facebook"></i></a><a class="btn pull-right js-toolbar-action" aria-label="Twitter" title="Twitter" href="https://mathstat.slu.edu/~speegle/_book/preface.html#"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Font Settings" title="Font Settings" href="https://mathstat.slu.edu/~speegle/_book/preface.html#"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><a class="btn pull-left js-toolbar-action" aria-label="Information about the toolbar" title="Information about the toolbar" href="https://mathstat.slu.edu/~speegle/_book/preface.html#"><i class="fa fa-info"></i></a><h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="https://mathstat.slu.edu/~speegle/_book/">Probability, Statistics, and Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Probability, Statistics, and Data</h1>
+<h2 class="subtitle"><em>A Fresh Approach Using R</em></h2>
+<p class="author"><em>Darrin Speegle and Bryan Clair</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2022-02-15</em></p>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1 class="hasAnchor">Preface<a href="https://mathstat.slu.edu/~speegle/_book/preface.html#preface" class="anchor-section"></a></h1>
+<p>This book is published by Chapman and Hall/CRC. Hard copies are available at <a href="https://www.amazon.com/Probability-Statistics-Data-Approach-Statistical-dp-0367436671/dp/0367436671/">Amazon</a> or <a href="https://www.routledge.com/Probability-Statistics-and-Data-A-Fresh-Approach-Using-R/Speegle-Clair/p/book/9780367436674">Routledge</a>. If you find this free version (or paid version) of the book useful, we would very much appreciate a positive review on <a href="https://www.amazon.com/Probability-Statistics-Data-Approach-Statistical-dp-0367436671/dp/0367436671/">Amazon</a>.</p>
+<p>This book represents a fundamental rethinking of a calculus based first course in probability and statistics.
+We offer a <strong>breadth first</strong> approach, where the essentials of probability and statistics can be taught in one semester.
+The statistical programming language R plays a central role throughout the text through simulations, data wrangling, visualizations, and statistical procedures.
+Data sets from a variety of sources, including many from recent, open source scientific articles, are used in examples and exercises.
+Demonstrations of important facts are given through simulations, with some formal mathematical proofs as well.</p>
+<p>This book is an excellent choice for students studying data science, statistics, engineering, computer science, mathematics, science, business, or for any student wanting a practical course grounded in simulations.</p>
+<p>The book assumes a mathematical background of one semester of calculus along with some infinite series in Chapter <a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#discreterandomvariables">3</a>. Integrals and infinite series are used for notation and exposition in Chapters <a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#discreterandomvariables">3</a> and <a href="https://mathstat.slu.edu/~speegle/_book/continuousrandomvariables.html#continuousrandomvariables">4</a>, but in other chapters the use of calculus is minimal. Since an emphasis is placed on understanding results (and robustness to departures from assumptions) via simulation, most if not all parts of the book can be understood without calculus. Proofs of many results are provided, and justifications via simulations for many more, but this text is not intended to support a proof based course. Readers are encouraged to follow the proofs, but often one wants to understand a proof only after first understanding the result and why it is important.</p>
+<p>Our philosophy in this book is to not shy away from messy data sets.
+The book contains extensive sections and many exercises that require data cleaning and manipulation. This is an essential part of the text.</p>
+<p>A one-semester course using this book could reasonably cover most material in Chapters 1-8 in order and then select two or three additional chapters.
+Sections <a href="https://mathstat.slu.edu/~speegle/_book/probchapter.html#countingarguments">2.4</a>, <a href="https://mathstat.slu.edu/~speegle/_book/discreterandomvariables.html#otherdiscrete">3.6</a>, <a href="https://mathstat.slu.edu/~speegle/_book/SimulationRV.html#pointestimators">5.6</a>, <a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#type2andpower">8.7</a> and <a href="https://mathstat.slu.edu/~speegle/_book/HTCI.html#bootstrapping">8.8</a> may be omitted or given light coverage.
+The descriptive statistics in Chapters 6 and 7 are frequently the first part of a statistics course,
+but we recommend leaving them in the middle as they provide students with a welcome change of pace during the semester.
+Chapter 9 (Rank Based Tests) is particularly important because it uses simulation techniques developed throughout the text to help
+students understand power and the effects of assumptions on testing.</p>
+<p>There is enough material for a more leisurely and thorough two-semester sequence that would delve deeper into probability theory,
+spend more time on data wrangling, and cover all of the inference chapters.</p>
+<p>Most chapters in the book contain at least one <strong>vignette</strong>.
+These short sections are not part of the development of the base material.
+We imagine these vignettes as starting points for further study for some students, or as interesting additions to the main material.
+Examples include chloropleth maps, data and gender, Stein’s paradox, and a treatment of Covid-19 data.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="./Probability, Statistics, and Data_files/dependency_graph.png" alt="Chapter dependencies." width="100%">
+<p class="caption">
+Figure 0.1: Chapter dependencies.
+</p>
+</div>
+<p>Base R and tidyverse tools are interspersed, depending on which is better for a particular job, though we don’t introduce any tidyverse tools until Chapter <a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#datamanipulation">6</a>. We feel that <code>replicate</code> and the base R plotting tools are appropriate for doing simulations and creating the types of visualizations that we need in the first chapters. The <code>dplyr</code> package is used for most data wrangling beginning in Chapter <a href="https://mathstat.slu.edu/~speegle/_book/datamanipulation.html#datamanipulation">6</a>, and <code>ggplot2</code> is used for most visualizations beginning in Chapter <a href="https://mathstat.slu.edu/~speegle/_book/ggplotviz.html#ggplotviz">7</a>. Other tidyverse tools introduced in this text, in order of emphasis, are <code>stringr</code> for string manipulation, <code>tidyr</code> for <code>pivot_longer</code> and <code>pivot_wider</code>, <code>lubridate</code> and <code>janitor::clean_names</code>.</p>
+<p>All data sets for this book are found in freely available R packages.
+The bulk of the data sets are in the package associated to this book, <code>fosdata</code>,
+and are mostly sourced from open access publications that are linked to in the help pages of the data.
+We encourage readers to spend time reading the publications that were written using the data in the book.
+We have taken two approaches to the data from original papers.
+In some instances, <code>fosdata</code> provides essentially all of the data from the published paper.
+This allows you to explore the data further and think about other visualizations and analyses that would be useful.
+It also typically requires some wrangling to get the data in a format for the analysis.
+In other instances, we have simplified the data from the paper quite a bit.
+In particular, in a few instances we have modified the data by filtering out observations or averaging in order to make it reasonable to assume independence.
+Please see the links provided in the help pages of <code>fosdata</code> for details.</p>
+<p>No book like this would be complete without resources for the student who wishes to learn more. Here are some suggestions for further study that the authors have enjoyed:</p>
+<ul>
+<li><em>ggplot2</em>, by Hadley Wickham, gives a nice overview of the capabilities of the <code>ggplot2</code> package. Students interested in data visualization would find this book interesting.</li>
+<li><em>Advanced R</em>, by Hadley Wickham, provides much more information on R than what we cover in this book. Computer Science students might enjoy reading this book.</li>
+<li><em>The Statistical Sleuth</em>, by Ramsey and Schafer, will help the student think more like a statistician when dealing with data sets. This book is on a lower level mathematically.</li>
+<li><em>Modern Applied Statistics with S</em>, by Venables and Ripley, is a book that covers more advanced statistical topics without much mathematics.</li>
+<li><em>Introductory Statistics with R</em>, by Peter Dalgaard, is a concise introduction to using R for many types of statistical procedures.</li>
+<li><em>Mathematical Statistics with Applications</em>, by Wackerly, Mendenhall, and Scheaffer, is a more mathematical (but still only requiring multivariate calculus and perhaps basic linear algebra) look at the topics of this book. Students interested in learning how to do the material in this book by hand without access to a computer may enjoy this book.</li>
+<li><em>Data Feminism</em>, by D’Ignazio and Klein, offers a way of thinking about data science and data ethics informed by the ideas of intersectional feminism. About more than just gender, this book investigates the use and abuse of the power of data science.</li>
+</ul>
+<p>This book is written in R Markdown using the <code>bookdown</code> package, by Yihui Xie. The original idea for a course of this type is due to Michael Lamar. The authors wish to thank Matt Schuelke, Kerith Conron, and Christophe Dervieux for helpful discussions. Thanks to Haijun Gong, Kimberly Druschel, Luis Miguel Anguas, Mustafa Attallah, Xue Li, and Caden Beddingfield for working through early editions. The anonymous reviewers provided useful comments, for which we are also grateful.
+We had two editors at CRC: John Kimmel, who believed in us from the start, and Lara Spieker, who got us to the finish line. Many thanks to both of you and a happy retirement to John!</p>
+<p>This book is copyright 2022, Darrin Speegle and Bryan Clair. Do not transmit or reuse without express permission.</p>
+<div id="software-installation" class="section level2 unnumbered">
+<h2 class="hasAnchor">Software Installation<a href="https://mathstat.slu.edu/~speegle/_book/preface.html#software-installation" class="anchor-section"></a></h2>
+<p></p>
+<p><strong>R</strong> is a programming language, distributed as its own software program.</p>
+<p>To install R:</p>
+<p><em>Mac users</em></p>
+<ol style="list-style-type: decimal">
+<li>Visit the CRAN archive, at <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org</a></li>
+<li>Find the link that looks like “R-x.x.x.pkg” under the Latest Release heading.</li>
+<li>Download the “R-x.x.x.pkg” file, double-click it to open, and follow the installation instructions.</li>
+</ol>
+<p><em>Windows users</em></p>
+<ol style="list-style-type: decimal">
+<li>Visit the CRAN archive, at <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org</a></li>
+<li>Click on the “Download R for Windows” link at the top of the page.</li>
+<li>Click on the “base” link.</li>
+<li>Click the large “Download R x.x.x for Windows” link and save the executable file somewhere on your computer.</li>
+<li>Run the .exe file and follow the installation instructions.</li>
+</ol>
+<p><strong>RStudio</strong> is a graphical interface to R.
+R can work without RStudio, but RStudio requires R to work.
+Though you may choose to use R in its native form, the improvements that come with RStudio are absolutely worth the effort to install it.
+In fact, once you have RStudio installed, there is little need to ever run the R program itself.</p>
+<p>To install RStudio:</p>
+<ol style="list-style-type: decimal">
+<li>Go to www.rstudio.com and click on the “Download RStudio” button.</li>
+<li>Click on “Download RStudio Desktop.”</li>
+<li>Click on the version recommended for your system and install it.</li>
+</ol>
+<p><strong>Libraries</strong> you might choose to install before starting are the <code>tidyverse</code> and the book’s data set <code>fosdata</code>.
+With RStudio running, find the Console and type:</p>
+<div class="sourceCode" id="cb1"><button type="button" class="copy-to-clipboard-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="fa fa-copy"></i></button><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="https://mathstat.slu.edu/~speegle/_book/preface.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-2"><a href="https://mathstat.slu.edu/~speegle/_book/preface.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb1-3"><a href="https://mathstat.slu.edu/~speegle/_book/preface.html#cb1-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"speegled/fosdata"</span>)</span></code></pre></div>
+<p>More details on package installation are in Section <a href="https://mathstat.slu.edu/~speegle/_book/RData.html#libraries">1.8</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="https://mathstat.slu.edu/~speegle/_book/RData.html" class="navigation navigation-next navigation-unique" aria-label="Next page" style="margin-right: 0px;"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="./Probability, Statistics, and Data_files/app.min.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/lunr.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/clipboard.min.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/plugin-search.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/plugin-sharing.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/plugin-fontsettings.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/plugin-bookdown.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/jquery.highlight.js.descargar"></script>
+<script src="./Probability, Statistics, and Data_files/plugin-clipboard.js.descargar"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+
+
+</body></html>

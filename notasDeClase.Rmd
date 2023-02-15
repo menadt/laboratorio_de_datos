@@ -1,0 +1,76 @@
+---
+title: "clase plots"
+author: "MenaDT"
+date: "2023-02-14"
+output: html_document
+---
+
+
+Histogramas:
+Histogramas de àrea (freq=FALSE)
+Histogramas de frecuencias
+
+Gràficos Bidimensionales:
+Scatter plot (gráfico de puntos)
+Se pueden agregar lìneas para clarificar el gràfico
+
+Para graficar dos gráficos en una misma pantalla.
+par (mfrow=c(1,2)) (filas, columnas)
+luego tengo que volver a poner en 1x1 par(mfrow=c(1,1))
+
+Poner todos los gráficos en la misma escala si estoy comparando lo mismo.
+
+Poner nombre a todos los gráficos.
+
+Gràfico de Mosaicos
+El mejor gràfico para comparar variables categóricas
+Primero hay que ver las columnas. La altura es sobre la proporciòn en la misma columna.
+
+Luego, el ancho de la columna sí tiene que ver con la cantida de casos.
+
+La alineación es algo que el ojo humano lo identifica claramente.
+
+
+plot de un data frame, me compara todos con todos.
+```{r}
+data("mtcars")
+
+```
+
+atach(dataframe) lo que hace es separar cada variable por separado. Hay que tener cuidado que no se pise con otra variable.
+Si trabajamos con más de una base de datos, pueden haber variables que se llamen igual.
+Conviene trabajar siempre con el dataframe. Siguen relacionadas con el data frame.
+
+```{r}
+attach(mtcars)
+
+
+```
+
+```{r}
+library(ggplot2)
+library(babynames)
+library(earth)
+```
+
+
+```{r}
+qplot(mpg, wt, data=mtcars,
+      colour=factor(cyl))
+```
+
+
+El ggplot hay que ir haciéndolo de a capas.
+
+```{r}
+ggplot(mtcars, 
+       aes(x=cyl)) + 
+      geom_bar(aes(y=..prop..),stat="count", width = 0.2, fill="gray4") +
+      labs(x="Cilindros", y="Proporciones", title="Gràfico") 
+
+```
+
+```{r}
+
+
+

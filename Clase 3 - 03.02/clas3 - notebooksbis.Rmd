@@ -1,0 +1,24 @@
+---
+title: "NoteBook"
+author: "MenaDT"
+date: "2023-02-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Titulo
+Probando **negrita**
+_italic_
+
+1. Lista 1
+
+
+```{r prueba}
+a <- c(1,2,3)
+b <- c(8,9,10)
+plot(a,b)
+
+```
